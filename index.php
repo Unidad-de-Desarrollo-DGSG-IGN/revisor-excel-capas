@@ -7,10 +7,8 @@ creación de capas, estilos y grupos de Geoserver.
 - Require que exista el archivo capas.xlsx
 ****************************************************/
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING ^ E_DEPRECATED);
-require_once '../config.php';
-require_once '../xls2/Classes/PHPExcel/IOFactory.php';
-
-define('ESTILOS-DIR', '../estilos-sld/');
+require_once 'config.php';
+require_once 'xls2/Classes/PHPExcel/IOFactory.php';
 
 
 // Conectando y seleccionado la base de datos  
