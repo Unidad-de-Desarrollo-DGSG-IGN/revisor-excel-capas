@@ -6,4 +6,4 @@ $sDBUsrLAB = 'dbuser';
 $sDBPswLAB = 'dbpsw';
 
 //Directorio donde se encuentran los archivos SLD
-define('ESTILOS-DIR', '../estilos-sld/');
+define('ESTILOS_DIR', '../estilos-sld/');

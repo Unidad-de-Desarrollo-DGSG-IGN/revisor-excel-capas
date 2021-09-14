@@ -113,7 +113,7 @@ for ($iRow = 2; $iRow <= $iHighestRow; $iRow++) {
 			if (!empty($aRow['estilo'])) {
 				$aAux = explode(',', $aRow['estilo']);
 				foreach ($aAux as $sRecurso) {
-					if (!file_exists(ESTILOS-DIR.$aRow['workspace'].'/'.$sRecurso.'.sld')) {
+					if (!file_exists(ESTILOS_DIR.$aRow['workspace'].'/'.$sRecurso.'.sld')) {
 						muestraErrorCapa($sHoja, $iRow, $identificadorCapa, 'No existe el estilo '.$sRecurso.'.sld');
 					}
 				}
@@ -121,7 +121,7 @@ for ($iRow = 2; $iRow <= $iHighestRow; $iRow++) {
 			if (!empty($aRow['estilo_recurso'])) {
 				$aAux = explode(',', $aRow['estilo_recurso']);
 				foreach ($aAux as $sRecurso) {
-					if (!file_exists(ESTILOS-DIR.$aRow['workspace'].'/'.$sRecurso)) {
+					if (!file_exists(ESTILOS_DIR.$aRow['workspace'].'/'.$sRecurso)) {
 						muestraErrorCapa($sHoja, $iRow, $identificadorCapa, 'No existe el recurso '.$sRecurso);
 					}
 				}
