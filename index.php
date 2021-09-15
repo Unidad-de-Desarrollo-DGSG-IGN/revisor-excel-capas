@@ -194,7 +194,11 @@ for ($iRow = 2; $iRow <= $iHighestRow; $iRow++) {
 				
 				foreach ($aRow['styles'] as $iKey => $sStyle) {
 					$aCapa = $aCapas[$aRow['workspace'] . ':' . $aRow['layers'][$iKey]];
-					if ($aCapa['estilo'] != $sStyle) {
+					$capasEstilos = explode(',', $aCapa['estilo']);
+					foreach ($capasEstilos as $key => $value) {
+						$capasEstilos[$key] = trim($value);
+					}
+					if (!in_array($sStyle, $capasEstilos)) {
 						muestraError($sHoja, $iRow, 'El estilo ' . $sStyle . ' no coincide con el estilo de su capa ' . $aRow['workspace'] . ':' . $aRow['layers'][$iKey]);
 					}
 				}
