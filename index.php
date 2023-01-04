@@ -76,6 +76,18 @@ for ($iRow = 2; $iRow <= $iHighestRow; $iRow++) {
 			$identificadorCapa = $aRow['workspace'].':'.$aRow['nombre_capa'];
 			
 			if (!empty($aRow['campos_publicar'])) {
+
+				$fields = explode(',', $aRow['campos_publicar']);
+				foreach ($fields as $key => $value) {
+					$fields[$key] = trim($value);
+				}
+				$frequencies = array_count_values($fields);
+				foreach ($frequencies as $field => $frequency) {
+					if ($frequency > 1) {
+						muestraErrorCapa($sHoja, $iRow, $identificadorCapa, 'El campo ' . $field . ' está duplicado en el listado de Campos a publicar');
+					}
+				}
+
 				if (!preg_match('/geom/', $aRow['campos_publicar'])) {
 					muestraErrorCapa($sHoja, $iRow, $identificadorCapa, 'No tiene definido el campo geom en "Campos a publicar"');
 				} else {
